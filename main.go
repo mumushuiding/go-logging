@@ -15,9 +15,9 @@ func main() {
 
 	// 启动服务
 	server := &http.Server{
-		Addr:           fmt.Sprintf(":%d", Config.Port),
+		Addr:           fmt.Sprintf(":%s", Config.Port),
 		Handler:        mux,
-		ReadTimeout:    time.Duration(Config.ReadTimeout * int64(time.Second)),
+		ReadTimeout:    time.Duration(Config.ReadTimeout * int(time.Second)),
 		WriteTimeout:   time.Duration(Config.WriteTimeout * int64(time.Second)),
 		MaxHeaderBytes: 1 << 20,
 	}

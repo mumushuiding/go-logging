@@ -1,11 +1,12 @@
 {
-  "Port": 8080,
+  "SERVER_PORT": "8080",
   "ReadTimeout": 60,
   "WriteTimeout": 60,
   "DB_TYPE": "mysql",
-  "MYSQL_DB_HOST": "localhost",
-  "MYSQL_DB_PORT": "3306",
-  "MYSQL_DB_USER": "root",
-  "MYSQL_DB_PASSWORD": "123"
+  "DB_URL": "logging?charset=utf8&parseTime=True&loc=Local",
+  "DB_HOST": "localhost",
+  "DB_PORT": "3306",
+  "DB_USER": "root",
+  "DB_PASSWORD": "123"
 
 }
