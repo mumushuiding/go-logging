@@ -1,4 +1,4 @@
-package main
+package config
 
 import (
 	"encoding/json"
@@ -9,15 +9,17 @@ import (
 
 // Configuration 数据库配置结构
 type Configuration struct {
-	Port         string `json:"SERVER_PORT"`
-	ReadTimeout  int
-	WriteTimeout int64
-	DbType       string `json:"DB_TYPE"`
-	DbURL        string `json:"DB_URL"`
-	DbHost       string `json:"DB_HOST"`
-	DbPort       string `json:"DB_PORT"`
-	DbUser       string `json:"DB_USER"`
-	DbPassword   string `json:"DB_PASSWORD"`
+	Port           string `json:"SERVER_PORT"`
+	ReadTimeout    int
+	WriteTimeout   int64
+	DbType         string `json:"DB_TYPE"`
+	DbName         string `json:"DB_NAME"`
+	DbHost         string `json:"DB_HOST"`
+	DbPort         string `json:"DB_PORT"`
+	DbUser         string `json:"DB_USER"`
+	DbPassword     string `json:"DB_PASSWORD"`
+	DbMaxIdleConns int    `json:"DB_MaxIdleConns"`
+	DbMaxOpenConns int    `json:"DB_MaxOpenConns"`
 }
 
 // Config 数据库配置
@@ -58,8 +60,8 @@ func (c *Configuration) setDbFromEnv() *Configuration {
 	if len(os.Getenv("DB_TYPE")) > 0 {
 		c.DbType = os.Getenv("DB_TYPE")
 	}
-	if len(os.Getenv("DB_URL")) > 0 {
-		c.DbURL = os.Getenv("DB_URL")
+	if len(os.Getenv("DB_NAME")) > 0 {
+		c.DbName = os.Getenv("DB_NAME")
 	}
 	if len(os.Getenv("DB_PORT")) > 0 {
 		c.DbPort = os.Getenv("DB_PORT")
